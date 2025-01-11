@@ -22,7 +22,7 @@ https://youtu.be/IqUXADVi6n8
 - Add this items for your ox_inventory
 ```lua
 ["low_printer"] = {
-  label = "Impressora pequena",
+  label = "Small printer",
   weight = 500,
   stack = true,
   close = true,
@@ -31,7 +31,7 @@ https://youtu.be/IqUXADVi6n8
   }
 },
 ["print_document"] = {
-  label = "Documento impresso",
+  label = "Printed document",
   weight = 0,
   stack = true,
   close = true,
@@ -40,7 +40,7 @@ https://youtu.be/IqUXADVi6n8
   }
 },
 ["printer_paper"] = {
-  label = "Papel em branco",
+  label = "Blank paper",
   weight = 0,
   stack = true,
   close = true,

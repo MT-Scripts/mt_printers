@@ -57,16 +57,16 @@ end
 exports('useDocument', useDocument)
 
 local openPrinter = function()
-    local input = lib.inputDialog('Impressora', {
-        { type = 'input', placeholder = 'Imagem bonita', label = 'Nome da image', required = true },
-        { type = 'input', placeholder = 'URL da imagem a imprimir', description = 'Apenas liks do imgbb.com', label = 'Imagem a imprimir', required = true },
-        { type = 'slider', max = 10, min = 1, default = 1, label = 'Quantidade a imprimir', required = true },
+    local input = lib.inputDialog(locale('printer'), {
+        { type = 'input', placeholder = locale('image_placeholder'), label = locale('image_name'), required = true },
+        { type = 'input', placeholder = locale('image_url'), description = locale('img_link'), label = locale('img_to_print'), required = true },
+        { type = 'slider', max = 10, min = 1, default = 1, label = locale('quantity'), required = true },
     })
     if input then
         if not input[1] or not input[2] or not input[3] then return end
         if not input[2]:match(locale('input_url_match')) then notify(locale('notify_wrong_url'), 'error') return end
         if exports.ox_inventory:GetItemCount('printer_paper') < input[3] then notify(locale('notify_no_paper'), 'error') return end
-        if lib.progressBar({ label = 'A imprimir documento', duration = 5000 }) then
+        if lib.progressBar({ label = locale('print_progress'), duration = 5000 }) then
             lib.callback.await('mt_printers:server:printDocument', false, input)
         end
     end
